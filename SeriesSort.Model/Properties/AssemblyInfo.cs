@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SeriesSort.Model")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Oganise Your Series - Data Persistance")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("SeriesSort.Model")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCopyright("Copyright ©  2015 Colin Genricks")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
