@@ -1,0 +1,32 @@
+﻿<Window x:Class="SeriesSort.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:SeriesSort.Model;assembly=SeriesSort.Model"
+        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="SeriesViewSource" />
+    </Window.Resources>
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Index Episodes" Click="ClickIndexEpisodesButton"/>
+            <Button Content="Organise Episodes" Click="ClickOrganiseEpisodesButton"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label>Path</Label>
+            <TextBox Name="CurrentPath" HorizontalAlignment="Center" />
+            <Button Content="..." Name="PathButton" Click="ClickPathButton" Width="26" />
+        </StackPanel>
+        <Grid DataContext="{StaticResource SeriesViewSource}">
+            <DataGrid x:Name="SeriesDataGrid" 
+                      AutoGenerateColumns="False" 
+                      EnableRowVirtualization="True"
+                      ItemsSource="{Binding}"
+                      RowDetailsVisibilityMode="VisibleWhenSelected">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="seriesIdColumn" Binding="{Binding SeriesId}" Header="Id"/>
+                    <DataGridTextColumn x:Name="seriesNameColumn" Binding="{Binding SeriesName}" Header="Name"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </StackPanel>
+</Window>
