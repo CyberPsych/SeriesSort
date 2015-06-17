@@ -16,17 +16,16 @@
             <TextBox Name="CurrentPath" HorizontalAlignment="Center" />
             <Button Content="..." Name="PathButton" Click="ClickPathButton" Width="26" />
         </StackPanel>
-        <Grid DataContext="{StaticResource SeriesViewSource}">
-            <DataGrid x:Name="SeriesDataGrid" 
-                      AutoGenerateColumns="False" 
-                      EnableRowVirtualization="True"
-                      ItemsSource="{Binding}"
-                      RowDetailsVisibilityMode="VisibleWhenSelected">
-                <DataGrid.Columns>
-                    <DataGridTextColumn x:Name="seriesIdColumn" Binding="{Binding SeriesId}" Header="Id"/>
-                    <DataGridTextColumn x:Name="seriesNameColumn" Binding="{Binding SeriesName}" Header="Name"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Grid>
+        <ListBox ItemsSource="{Binding Source={StaticResource SeriesViewSource}}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Text="{Binding Path=SeriesId}"></TextBox>
+                        <TextBox Text="{Binding Path=SeriesName}"></TextBox>
+                        <ListBox ItemsSource="{Binding Path=Episodes}"></ListBox>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ListBox>
     </StackPanel>
 </Window>

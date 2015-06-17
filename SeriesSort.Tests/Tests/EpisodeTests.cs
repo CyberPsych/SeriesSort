@@ -38,6 +38,30 @@ namespace SeriesSort.Tests.Tests
             }
         }
 
+
+        [Test]
+        public void ShouldGetEpisodeIdBackWhenSaveInDb()
+        {
+            using (var dbContext = new MediaModelDBContext())
+            {
+
+                var episodeFactory = new EpisodeFactory(dbContext);
+                var testEpisode = episodeFactory.CreateNewEpisode("T:\\AAA\\UnitTestShouldGetEpisodeIdBackWhenSaveInDbS01E01.avi");
+                testEpisode.CreateDateTime = DateTime.Now;
+                testEpisode.FileSize = 100;
+
+                dbContext.Episodes.Add(testEpisode);
+                dbContext.SaveChanges();
+
+                Assert.That(testEpisode.EpisodeId, Is.Not.EqualTo(0), "EpisodeId not returned on save");
+
+                var series = testEpisode.Series;
+                dbContext.Episodes.Remove(testEpisode);
+                dbContext.Series.Remove(series);
+                dbContext.SaveChanges();
+            }
+        }
+
         [Test]
         public void ShouldExtractTheFileExtensionForEpisode()
         {

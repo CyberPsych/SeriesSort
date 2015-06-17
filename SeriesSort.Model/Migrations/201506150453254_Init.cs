@@ -3,7 +3,7 @@ namespace SeriesSort.Model.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class Init : DbMigration
     {
         public override void Up()
         {
@@ -17,8 +17,8 @@ namespace SeriesSort.Model.Migrations
                         FileName = c.String(),
                         FullPath = c.String(),
                         CreateDateTime = c.DateTime(nullable: false),
-                        FileSize = c.Long(nullable: false),
-                        ValidEpisode = c.Boolean(nullable: false),
+                        FileSize = c.Double(nullable: false),
+                        FileExtention = c.String(),
                         Series_SeriesId = c.Int(),
                     })
                 .PrimaryKey(t => t.EpisodeId)
@@ -34,12 +34,23 @@ namespace SeriesSort.Model.Migrations
                     })
                 .PrimaryKey(t => t.SeriesId);
             
+            CreateTable(
+                "dbo.MediaTypes",
+                c => new
+                    {
+                        MediaTypeId = c.Int(nullable: false, identity: true),
+                        Extension = c.String(),
+                        ValidForSeries = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.MediaTypeId);
+            
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.Episodes", "Series_SeriesId", "dbo.Series");
             DropIndex("dbo.Episodes", new[] { "Series_SeriesId" });
+            DropTable("dbo.MediaTypes");
             DropTable("dbo.Series");
             DropTable("dbo.Episodes");
         }

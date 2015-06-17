@@ -75,21 +75,9 @@
     <Compile Include="ISeriesQueryByShowName.cs" />
     <Compile Include="MediaModelDBContext.cs" />
     <Compile Include="MediaType.cs" />
-    <Compile Include="Migrations\201505041336437_Initial.cs" />
-    <Compile Include="Migrations\201505041336437_Initial.Designer.cs">
-      <DependentUpon>201505041336437_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505081417087_next.cs" />
-    <Compile Include="Migrations\201505081417087_next.Designer.cs">
-      <DependentUpon>201505081417087_next.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505111016353_nextA.cs" />
-    <Compile Include="Migrations\201505111016353_nextA.Designer.cs">
-      <DependentUpon>201505111016353_nextA.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505180747437_MediaType.cs" />
-    <Compile Include="Migrations\201505180747437_MediaType.Designer.cs">
-      <DependentUpon>201505180747437_MediaType.cs</DependentUpon>
+    <Compile Include="Migrations\201506150453254_Init.cs" />
+    <Compile Include="Migrations\201506150453254_Init.Designer.cs">
+      <DependentUpon>201506150453254_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,20 +92,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505041336437_Initial.resx">
-      <DependentUpon>201505041336437_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505081417087_next.resx">
-      <DependentUpon>201505081417087_next.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505111016353_nextA.resx">
-      <DependentUpon>201505111016353_nextA.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505180747437_MediaType.resx">
-      <DependentUpon>201505180747437_MediaType.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506150453254_Init.resx">
+      <DependentUpon>201506150453254_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

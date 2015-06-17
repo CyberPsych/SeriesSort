@@ -1,3 +1,5 @@
+using System.Configuration;
+
 namespace SeriesSort.Model.Helpers
 {
     public static class Settings
@@ -5,7 +7,7 @@ namespace SeriesSort.Model.Helpers
         static Settings()
         {
             ExcludeSampleFiles = true;
-            SeriesLibraryPath = @"C:\UnitTestTemp\SeriesSort\";
+            SeriesLibraryPath =  ConfigurationManager.AppSettings["SeriesPath"];
             OverwriteFiles = true;
         }
         public static bool ExcludeSampleFiles { get; set; }

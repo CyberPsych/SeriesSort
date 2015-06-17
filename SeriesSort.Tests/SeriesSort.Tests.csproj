@@ -62,6 +62,7 @@
     <Compile Include="Tests\MediaTypeTests.cs" />
     <Compile Include="Tests\SeriesFileTests.cs" />
     <Compile Include="Tests\SeriesTests.cs" />
+    <Compile Include="Tests\SystemTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

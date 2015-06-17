@@ -2,6 +2,7 @@
 using SeriesSort.Model.Helpers;
 using System.Data.Entity;
 using System.Windows;
+using System.Windows.Data;
 using WPFFolderBrowser;
 
 namespace SeriesSort
@@ -46,10 +47,11 @@ namespace SeriesSort
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var seriesViewSource = ((System.Windows.Data.CollectionViewSource)(FindResource("SeriesViewSource")));
+            var seriesViewSource = ((CollectionViewSource) (FindResource("SeriesViewSource")));
 
             _dbContext.Series.Load();
-            seriesViewSource.Source = _dbContext.Series.Local; 
+            _dbContext.Episodes.Load();
+            seriesViewSource.Source = _dbContext.Series.Local;
         }
 
         private void ClickOrganiseEpisodesButton(object sender, RoutedEventArgs e)

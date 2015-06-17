@@ -67,30 +67,6 @@ namespace SeriesSort.Tests.Tests
             }
         }
 
-        [Test]
-        public void ShouldGetEpisodeIdBackWhenSaveInDb()
-        {
-            using (var dbContext = new MediaModelDBContext())
-            {
-
-                var episodeFactory = new EpisodeFactory(dbContext);
-                var testEpisode = episodeFactory.CreateNewEpisode("T:\\AAA\\UnitTestShouldGetEpisodeIdBackWhenSaveInDbS01E01.avi");
-                testEpisode.CreateDateTime = DateTime.Now;
-                testEpisode.FileSize = 100;
-
-                dbContext.Episodes.Add(testEpisode);
-                dbContext.SaveChanges();
-
-                Assert.That(testEpisode.EpisodeId, Is.Not.EqualTo(0), "EpisodeId not returned on save");
-
-                var series = testEpisode.Series;
-                dbContext.Episodes.Remove(testEpisode);
-                dbContext.Series.Remove(series);
-                dbContext.SaveChanges();
-            }
-        }
-
-
 
         [Test]
         public void ShouldStoreSeriesInDb()
@@ -159,6 +135,40 @@ namespace SeriesSort.Tests.Tests
                 dbContext.Series.Remove(testSeries);
                 dbContext.SaveChanges();
             }
+        }
+
+        [Test]
+        public void ShouldLoadEpisodesForSeriesWhenSeriesIsLoaded()
+        {
+            using (var dbContext = new MediaModelDBContext())
+            {
+                const string testDirectory = TestContstants.TestDir + @"\ShouldLoadEpisodesForSeriesWhenSeriesIsLoaded";
+                var episodeFactory = new EpisodeFactory(dbContext);
+                var randomSeriesName = Guid.NewGuid().ToString();
+                var testEpisodeA = episodeFactory.CreateNewEpisode(testDirectory + @"\" + randomSeriesName + @"S03E01.avi");
+                var testEpisodeB = episodeFactory.CreateNewEpisode(testDirectory + @"\" + randomSeriesName + @"S03E02.avi");
+
+
+                dbContext.Episodes.Add(testEpisodeA);
+                dbContext.Episodes.Add(testEpisodeB);
+                dbContext.SaveChanges();
+
+                var a = dbContext.Series.First(b => b.SeriesName == randomSeriesName);
+                Assert.That(a.Episodes, Is.Not.Null, "Series loaded but with no related episodes");
+                Assert.That(a.Episodes.Count, Is.EqualTo(2), "Series was loaded with the wrong number of episodes");
+
+                var testSeries = testEpisodeA.Series;
+                dbContext.Episodes.Remove(testEpisodeA);
+                dbContext.Episodes.Remove(testEpisodeB);
+                dbContext.Series.Remove(testSeries);
+                dbContext.SaveChanges();
+            }
+        }
+
+        [Test]
+        public void ShouldBeAbleToHaveSeriesWithEpisodesInDiferentLibrary()
+        {
+            throw new NotImplementedException();
         }
     }
 }

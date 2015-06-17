@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using NUnit.Framework;
@@ -38,6 +39,29 @@ namespace SeriesSort.Tests.Tests
                 var episodeFiles = episodeHelper.GetEpisodeFiles(testDirectory, false);
                 var fileCount = episodeFiles.Count();
                 Assert.That(fileCount, Is.EqualTo(4));
+
+                dbContext.Series.Remove(episodeFiles[0].Series);
+                dbContext.SaveChanges();
+                HelperFileFolderTests.DisposeTestFolder(testDirectory);
+            }
+        }
+
+        [Test]
+        public void ShouldListEpisodeInSubDirectory()
+        {
+            const string testDirectory = TestContstants.TestDir + @"\ShouldListEpisodeInSubDirectoryIfSet";
+            const string subdirectory = testDirectory + @"\SubDirectory";
+            HelperFileFolderTests.CreateTestFolder(testDirectory);
+            HelperFileFolderTests.CreateTestFolder(subdirectory);
+
+            HelperFileFolderTests.AddTestFileToTestFolder(subdirectory, new List<string> { "ShouldListEpisodeInSubDirectoryIfSet.S01E01.mp4" }, "ShouldListEpisodeInSubDirectoryIfSet");
+
+            using (var dbContext = new MediaModelDBContext())
+            {
+                var episodeHelper = new EpisodesHelper(dbContext);
+                var episodeFiles = episodeHelper.GetEpisodeFiles(testDirectory, true);
+                var fileCount = episodeFiles.Count();
+                Assert.That(fileCount, Is.EqualTo(1), "Did not find episode in subdirectory");
 
                 dbContext.Series.Remove(episodeFiles[0].Series);
                 dbContext.SaveChanges();

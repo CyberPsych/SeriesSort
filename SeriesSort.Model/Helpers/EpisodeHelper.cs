@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
+using System.Security.Principal;
 
 namespace SeriesSort.Model.Helpers
 {
@@ -36,7 +38,7 @@ namespace SeriesSort.Model.Helpers
             {
                 if (Settings.OverwriteFiles)
                 {
-                    File.Delete(libraryFullPath);
+                    AdminDelete(libraryFullPath);
                 }
                 else
                 {
@@ -44,8 +46,30 @@ namespace SeriesSort.Model.Helpers
                 }
             }
 
-            File.Move(_episode.FullPath, libraryFullPath);
             _episode.FullPath = libraryFullPath;
+        }
+
+        private void AdminDelete(string libraryFullPath)
+        {
+            var dInfo = new DirectoryInfo(libraryFullPath);
+            var dSecurity = dInfo.GetAccessControl();
+
+            dSecurity.AddAccessRule(
+                new FileSystemAccessRule(
+                    new SecurityIdentifier(WellKnownSidType.BuiltinUsersSid, null), 
+                    FileSystemRights.DeleteSubdirectoriesAndFiles, 
+                    AccessControlType.Allow)
+                    );
+            dInfo.SetAccessControl(dSecurity);
+
+            try
+            {
+                File.Delete(libraryFullPath);
+            }
+            catch (UnauthorizedAccessException unauthorizedAccessException)
+            {
+                //TODO: Handle Exceptions
+            }
         }
     }
 }

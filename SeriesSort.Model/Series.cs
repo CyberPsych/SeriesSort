@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Configuration;
+using SeriesSort.Model.Helpers;
 
 namespace SeriesSort.Model
 {
@@ -20,7 +21,7 @@ namespace SeriesSort.Model
         {
             get
             {
-                return string.Format("{1}\\{0}", SeriesName, ConfigurationManager.AppSettings["SeriesPath"]);
+                return string.Format("{1}\\{0}", SeriesName, Settings.SeriesLibraryPath);
             }
         }
 

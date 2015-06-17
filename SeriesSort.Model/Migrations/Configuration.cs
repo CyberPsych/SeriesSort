@@ -5,14 +5,14 @@ namespace SeriesSort.Model.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SeriesSort.Model.MediaModelDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<MediaModelDBContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(SeriesSort.Model.MediaModelDBContext context)
+        protected override void Seed(MediaModelDBContext context)
         {
             //  This method will be called after migrating to the latest version.
 
