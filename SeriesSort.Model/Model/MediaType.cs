@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SeriesSort.Model
+namespace SeriesSort.Model.Model
 {
     public class MediaType
     {

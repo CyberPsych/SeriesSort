@@ -2,16 +2,19 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using SeriesSort.Model.Interface;
+using SeriesSort.Model.Model;
 
-namespace SeriesSort.Model
+namespace SeriesSort.Model.Helpers
 {
+
+
     public class EpisodeSeriesInformationExtractor : IEpisodeSeriesInformationExtractor
     {
         private readonly ISeriesQueryByShowName _seriesQuery;
-        private Episode _episode;
+        private EpisodeFile _episodeFile;
         private DateTime _creationDate;
         private double _fileSize;
-        private Series _series;
         private int _episodeNumber;
         private int _season;
         private string _showName;
@@ -21,20 +24,20 @@ namespace SeriesSort.Model
             _seriesQuery = seriesQuery;
         }
 
-        public void ExtractInfo(Episode episode)
+        public void ExtractInfo(EpisodeFile episodeFile)
         {
-            _episode = episode;
+            _episodeFile = episodeFile;
 
-            if (_episode.FileName == null)
+            if (_episodeFile.FileName == null)
                 throw new MissingFieldException("Filename is required to extract file info.");
-            if (_episode.FullPath == null)
+            if (_episodeFile.FullPath == null)
                 throw new MissingFieldException("Fullpath is required to extract file info.");
 
             _creationDate = DateTime.Now;
 
             const string fov = @"(?<ShowName>.*?)S(?<Season>\d{1,2})E(?<Episode>\d{1,2})";
             var regexStandard = new Regex(fov, RegexOptions.IgnoreCase);
-            var match = regexStandard.Match(_episode.FileName);
+            var match = regexStandard.Match(_episodeFile.FileName);
 
             if (match.Success)
             {
@@ -57,21 +60,21 @@ namespace SeriesSort.Model
 
                 if (_showName != null)
                 {
-                    _episode.Series = _seriesQuery.GetSeriesBySeriesName(_showName);
+                    _episodeFile.Series = _seriesQuery.GetSeriesBySeriesName(_showName);
                 }
             }
 
-            GetFileInfoForEpisode(_episode);
+            GetFileInfoForEpisode(_episodeFile);
 
-            _episode.SetInfoFromFile(_season, _episodeNumber, _fileSize, _creationDate);
+            _episodeFile.SetInfoFromFile(_season, _episodeNumber, _fileSize, _creationDate);
         }
 
-        private void GetFileInfoForEpisode(Episode episode)
+        private void GetFileInfoForEpisode(EpisodeFile episodeFile)
         {
-            if (File.Exists(episode.FullPath))
+            if (File.Exists(episodeFile.FullPath))
             {
-                _creationDate = File.GetCreationTime(episode.FullPath);
-                var fileInfo = new FileInfo(episode.FullPath);
+                _creationDate = File.GetCreationTime(episodeFile.FullPath);
+                var fileInfo = new FileInfo(episodeFile.FullPath);
                 _fileSize = fileInfo.Length;
             }
         }

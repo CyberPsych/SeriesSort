@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tests\EpisodeHelperTests.cs" />
     <Compile Include="Tests\EpisodeTests.cs" />
     <Compile Include="Tests\FileAndFolderTests.cs" />
     <Compile Include="Lib\HelperFileFolderTests.cs" />

@@ -4,6 +4,7 @@ using SeriesSort.Model.Helpers;
 using SeriesSort.Tests.Lib;
 using System;
 using System.Linq;
+using SeriesSort.Model.Interface;
 
 namespace SeriesSort.Tests.Tests
 {
@@ -57,7 +58,8 @@ namespace SeriesSort.Tests.Tests
         {
             using (var dbContext = new MediaModelDBContext())
             {
-                var episodeFactory = new EpisodeFactory(dbContext);
+                ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
+                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
                 var testEpisode = episodeFactory.CreateNewEpisode("UnitTestShouldExtractSeriesInfoS01E01");
                 Assert.That(testEpisode.Series, Is.Not.Null);
                 Assert.That(testEpisode.Series.SeriesName, Is.EqualTo("UnitTestShouldExtractSeriesInfo"));
@@ -74,35 +76,36 @@ namespace SeriesSort.Tests.Tests
             using (var dbContext = new MediaModelDBContext())
             {
                 const string testDirectory = TestContstants.TestDir + @"\ShouldStoreSeriesInDb";
-                var episodeFactory = new EpisodeFactory(dbContext);
+                ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
+                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
                 var testEpisode = episodeFactory.CreateNewEpisode(testDirectory + @"\UnitTestShouldStoreSeriesInDbS01E01.avi");
                 testEpisode.CreateDateTime = DateTime.Now;
                 testEpisode.FileSize = 100;
 
 
-                dbContext.Episodes.Add(testEpisode);
+                dbContext.EpisodeFiles.Add(testEpisode);
                 dbContext.SaveChanges();
 
                 var newSeriesId = testEpisode.Series.SeriesId;
                 var retrievedSeries = dbContext.Series.First(x => x.SeriesId == newSeriesId);
 
                 Assert.That(retrievedSeries.SeriesName, Is.EqualTo(testEpisode.Series.SeriesName));
-                Assert.That(retrievedSeries.Episodes, Is.Not.Null);
-                Assert.That(retrievedSeries.Episodes.Count, Is.GreaterThan(0));
-                Assert.That(retrievedSeries.Episodes.First().Season, Is.EqualTo(testEpisode.Season));
-                Assert.That(retrievedSeries.Episodes.First().EpisodeNumber, Is.EqualTo(testEpisode.EpisodeNumber));
+                Assert.That(retrievedSeries.EpisodeFiles, Is.Not.Null);
+                Assert.That(retrievedSeries.EpisodeFiles.Count, Is.GreaterThan(0));
+                Assert.That(retrievedSeries.EpisodeFiles.First().Season, Is.EqualTo(testEpisode.Season));
+                Assert.That(retrievedSeries.EpisodeFiles.First().EpisodeNumber, Is.EqualTo(testEpisode.EpisodeNumber));
 
                 var newEpisodeId = testEpisode.EpisodeId;
-                var retrievedEpisode = dbContext.Episodes.FirstOrDefault(x => x.EpisodeId == newEpisodeId);
+                var retrievedEpisode = dbContext.EpisodeFiles.FirstOrDefault(x => x.EpisodeId == newEpisodeId);
 
                 Assert.That(retrievedEpisode, Is.Not.Null, "retrievedEpisode is null");
                 Assert.That(retrievedEpisode.Series.SeriesName, Is.EqualTo(testEpisode.Series.SeriesName));
                 Assert.That(retrievedEpisode.Season, Is.EqualTo(testEpisode.Season));
                 Assert.That(retrievedEpisode.EpisodeNumber, Is.EqualTo(testEpisode.EpisodeNumber));
 
-                dbContext.Episodes.Remove(retrievedEpisode);
+                dbContext.EpisodeFiles.Remove(retrievedEpisode);
                 dbContext.SaveChanges();
-                var empltyEpisodes = dbContext.Episodes.Where(x => x.EpisodeId == newEpisodeId);
+                var empltyEpisodes = dbContext.EpisodeFiles.Where(x => x.EpisodeId == newEpisodeId);
 
                 Assert.That(empltyEpisodes.Count(), Is.EqualTo(0));
 
@@ -117,21 +120,22 @@ namespace SeriesSort.Tests.Tests
             using (var dbContext = new MediaModelDBContext())
             {
                 const string testDirectory = TestContstants.TestDir + @"\ShouldLoadSeriesIfOneExists";
-                var episodeFactory = new EpisodeFactory(dbContext);
+                ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
+                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
                 var randomSeriesName = Guid.NewGuid().ToString();
                 var testEpisodeA = episodeFactory.CreateNewEpisode(testDirectory + @"\" + randomSeriesName + @"S01E01.avi");
                 var testEpisodeB = episodeFactory.CreateNewEpisode(testDirectory + @"\" + randomSeriesName + @"S02E03.avi");
 
 
-                dbContext.Episodes.Add(testEpisodeA);
-                dbContext.Episodes.Add(testEpisodeB);
+                dbContext.EpisodeFiles.Add(testEpisodeA);
+                dbContext.EpisodeFiles.Add(testEpisodeB);
                 dbContext.SaveChanges();
 
                 Assert.That(dbContext.Series.Count(s => s.SeriesName == randomSeriesName), Is.EqualTo(1));
 
                 var testSeries = testEpisodeA.Series;
-                dbContext.Episodes.Remove(testEpisodeA);
-                dbContext.Episodes.Remove(testEpisodeB);
+                dbContext.EpisodeFiles.Remove(testEpisodeA);
+                dbContext.EpisodeFiles.Remove(testEpisodeB);
                 dbContext.Series.Remove(testSeries);
                 dbContext.SaveChanges();
             }
@@ -143,29 +147,30 @@ namespace SeriesSort.Tests.Tests
             using (var dbContext = new MediaModelDBContext())
             {
                 const string testDirectory = TestContstants.TestDir + @"\ShouldLoadEpisodesForSeriesWhenSeriesIsLoaded";
-                var episodeFactory = new EpisodeFactory(dbContext);
+                ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
+                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
                 var randomSeriesName = Guid.NewGuid().ToString();
                 var testEpisodeA = episodeFactory.CreateNewEpisode(testDirectory + @"\" + randomSeriesName + @"S03E01.avi");
                 var testEpisodeB = episodeFactory.CreateNewEpisode(testDirectory + @"\" + randomSeriesName + @"S03E02.avi");
 
 
-                dbContext.Episodes.Add(testEpisodeA);
-                dbContext.Episodes.Add(testEpisodeB);
+                dbContext.EpisodeFiles.Add(testEpisodeA);
+                dbContext.EpisodeFiles.Add(testEpisodeB);
                 dbContext.SaveChanges();
 
                 var a = dbContext.Series.First(b => b.SeriesName == randomSeriesName);
-                Assert.That(a.Episodes, Is.Not.Null, "Series loaded but with no related episodes");
-                Assert.That(a.Episodes.Count, Is.EqualTo(2), "Series was loaded with the wrong number of episodes");
+                Assert.That(a.EpisodeFiles, Is.Not.Null, "Series loaded but with no related episodes");
+                Assert.That(a.EpisodeFiles.Count, Is.EqualTo(2), "Series was loaded with the wrong number of episodes");
 
                 var testSeries = testEpisodeA.Series;
-                dbContext.Episodes.Remove(testEpisodeA);
-                dbContext.Episodes.Remove(testEpisodeB);
+                dbContext.EpisodeFiles.Remove(testEpisodeA);
+                dbContext.EpisodeFiles.Remove(testEpisodeB);
                 dbContext.Series.Remove(testSeries);
                 dbContext.SaveChanges();
             }
         }
 
-        [Test]
+        [Test, Ignore]
         public void ShouldBeAbleToHaveSeriesWithEpisodesInDiferentLibrary()
         {
             throw new NotImplementedException();

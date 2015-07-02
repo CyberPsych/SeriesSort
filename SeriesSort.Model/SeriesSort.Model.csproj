@@ -64,36 +64,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EpisodeSeriesInformationExtractor.cs" />
-    <Compile Include="Helpers\EpisodeFactory.cs" />
-    <Compile Include="Helpers\EpisodeHelper.cs" />
+    <Compile Include="Helpers\EpisodeSeriesInformationExtractor.cs" />
+    <Compile Include="Migrations\201507010759318_EpisodeSeperation.cs" />
+    <Compile Include="Migrations\201507010759318_EpisodeSeperation.Designer.cs">
+      <DependentUpon>201507010759318_EpisodeSeperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Episode.cs" />
+    <Compile Include="Helpers\EpisodeFileFactory.cs" />
+    <Compile Include="Helpers\EpisodeFileLibraryMover.cs" />
     <Compile Include="Helpers\EpisodesHelper.cs" />
     <Compile Include="Helpers\MediaTypeHelper.cs" />
     <Compile Include="Helpers\SeriesFactory.cs" />
     <Compile Include="Helpers\Settings.cs" />
-    <Compile Include="IEpisodeSeriesInformationExtractor.cs" />
-    <Compile Include="ISeriesQueryByShowName.cs" />
+    <Compile Include="Interface\IEpisode.cs" />
+    <Compile Include="Interface\IEpisodeSeriesInformationExtractor.cs" />
+    <Compile Include="Interface\ISeriesQueryByShowName.cs" />
     <Compile Include="MediaModelDBContext.cs" />
-    <Compile Include="MediaType.cs" />
-    <Compile Include="Migrations\201506150453254_Init.cs" />
-    <Compile Include="Migrations\201506150453254_Init.Designer.cs">
-      <DependentUpon>201506150453254_Init.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Model\MediaType.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Series.cs" />
-    <Compile Include="Episode.cs" />
+    <Compile Include="Model\Series.cs" />
+    <Compile Include="Model\EpisodeFile.cs" />
     <Compile Include="SeriesQueryByNameFromDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201506150453254_Init.resx">
-      <DependentUpon>201506150453254_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507010759318_EpisodeSeperation.resx">
+      <DependentUpon>201507010759318_EpisodeSeperation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,22 +3,22 @@ namespace SeriesSort.Model.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class EpisodeSeperation : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Episodes",
+                "dbo.EpisodeFiles",
                 c => new
                     {
                         EpisodeId = c.Int(nullable: false, identity: true),
-                        Season = c.Int(nullable: false),
-                        EpisodeNumber = c.Int(nullable: false),
                         FileName = c.String(),
                         FullPath = c.String(),
                         CreateDateTime = c.DateTime(nullable: false),
                         FileSize = c.Double(nullable: false),
                         FileExtention = c.String(),
+                        Season = c.Int(nullable: false),
+                        EpisodeNumber = c.Int(nullable: false),
                         Series_SeriesId = c.Int(),
                     })
                 .PrimaryKey(t => t.EpisodeId)
@@ -48,11 +48,11 @@ namespace SeriesSort.Model.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Episodes", "Series_SeriesId", "dbo.Series");
-            DropIndex("dbo.Episodes", new[] { "Series_SeriesId" });
+            DropForeignKey("dbo.EpisodeFiles", "Series_SeriesId", "dbo.Series");
+            DropIndex("dbo.EpisodeFiles", new[] { "Series_SeriesId" });
             DropTable("dbo.MediaTypes");
             DropTable("dbo.Series");
-            DropTable("dbo.Episodes");
+            DropTable("dbo.EpisodeFiles");
         }
     }
 }

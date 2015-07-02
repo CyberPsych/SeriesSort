@@ -1,18 +1,11 @@
-using SeriesSort.Model.Helpers;
 using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
+using SeriesSort.Model.Helpers;
 
-namespace SeriesSort.Model
+namespace SeriesSort.Model.Model
 {
-    public class Episode
+    public class EpisodeFile : Episode
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key]
-        public virtual int EpisodeId { get; set; }
-        public virtual Series Series { get; set; }
-        public virtual int Season { get; private set; }
-        public virtual int EpisodeNumber { get; private set; }
         public virtual string FileName { get; protected set; }
         public virtual string FullPath
         {
@@ -40,12 +33,12 @@ namespace SeriesSort.Model
 
         private string _fullPath;
 
-        public Episode()
+        public EpisodeFile()
         {
             CreateDateTime = DateTime.Now;
         }
 
-        public Episode(string fullPath)
+        public EpisodeFile(string fullPath)
         {
             FullPath = fullPath;
             CreateDateTime = DateTime.Now;

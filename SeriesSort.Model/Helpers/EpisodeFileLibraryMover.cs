@@ -1,28 +1,27 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.AccessControl;
 using System.Security.Principal;
+using SeriesSort.Model.Model;
 
 namespace SeriesSort.Model.Helpers
 {
-    public class EpisodeHelper
+    public class EpisodeFileLibraryMover
     {
-        private readonly Episode _episode;
+        private readonly EpisodeFile _episodeFile;
 
-        public EpisodeHelper(Episode episode)
+        public EpisodeFileLibraryMover(EpisodeFile episodeFile)
         {
-            _episode = episode;
+            _episodeFile = episodeFile;
         }
 
         public void MoveToLibrary(string libraryDirectory)
         {
-            var libraryFullPath = _episode.CreateLibraryEpisodePath(libraryDirectory);
+            var libraryFullPath = _episodeFile.CreateLibraryEpisodePath(libraryDirectory);
 
             var fileInfo = new FileInfo(libraryFullPath);
             var directoryName = fileInfo.DirectoryName;
-            if (!String.IsNullOrEmpty(directoryName))
+            if (!string.IsNullOrEmpty(directoryName))
             {
                 if (!Directory.Exists(directoryName))
                 {
@@ -42,11 +41,12 @@ namespace SeriesSort.Model.Helpers
                 }
                 else
                 {
-                    libraryFullPath = _episode.GetNextEpisodePathForDuplicate(libraryFullPath);
+                    libraryFullPath = _episodeFile.GetNextEpisodePathForDuplicate(libraryFullPath);
                 }
             }
 
-            _episode.FullPath = libraryFullPath;
+            File.Move(_episodeFile.FullPath, libraryFullPath);
+            _episodeFile.FullPath = libraryFullPath;
         }
 
         private void AdminDelete(string libraryFullPath)

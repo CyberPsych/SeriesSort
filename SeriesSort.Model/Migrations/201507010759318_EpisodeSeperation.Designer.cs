@@ -7,13 +7,13 @@ namespace SeriesSort.Model.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Init : IMigrationMetadata
+    public sealed partial class EpisodeSeperation : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(EpisodeSeperation));
         
         string IMigrationMetadata.Id
         {
-            get { return "201506150453254_Init"; }
+            get { return "201507010759318_EpisodeSeperation"; }
         }
         
         string IMigrationMetadata.Source

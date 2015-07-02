@@ -1,4 +1,6 @@
-namespace SeriesSort.Model
+using SeriesSort.Model.Model;
+
+namespace SeriesSort.Model.Interface
 {
     public interface ISeriesQueryByShowName
     {

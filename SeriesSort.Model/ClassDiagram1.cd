@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SeriesSort.Model.Model.EpisodeFile" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAIAAAEAEABEAAAAAAAAQAAAAAAAAIAAAAhAAgE=</HashCode>
+      <FileName>Model\EpisodeFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeriesSort.Model.EpisodeSeriesInformationExtractor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAQAAAEAAAQgAAAAAAAAABBBQAABEAAAAAAA=</HashCode>
+      <FileName>EpisodeSeriesInformationExtractor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SeriesSort.Model.MediaModelDBContext" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>MediaModelDBContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeriesSort.Model.Model.MediaType" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\MediaType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeriesSort.Model.Model.Series" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAACAAAAAAAAAAAAAAAAAAAQAAAAAACAAAAAA=</HashCode>
+      <FileName>Model\Series.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeriesSort.Model.SeriesQueryByNameFromDbContext" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SeriesQueryByNameFromDbContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SeriesSort.Model.Helpers.EpisodeFactory" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Helpers\EpisodeFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeriesSort.Model.Helpers.EpisodeHelper" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAABAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Helpers\EpisodeHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeriesSort.Model.Helpers.EpisodesHelper" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\EpisodesHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeriesSort.Model.Helpers.MediaTypeHelper" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\MediaTypeHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeriesSort.Model.Helpers.SeriesFactory" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\SeriesFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeriesSort.Model.Helpers.Settings" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAACCAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeriesSort.Model.Migrations.Configuration" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Migrations\Configuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

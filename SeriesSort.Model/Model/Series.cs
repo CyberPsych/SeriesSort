@@ -1,17 +1,16 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Configuration;
 using SeriesSort.Model.Helpers;
 
-namespace SeriesSort.Model
+namespace SeriesSort.Model.Model
 {
     public class Series
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key]
         public int SeriesId { get; set; }
         public string SeriesName { get; set; }
-        public ObservableCollection<Episode> Episodes { get; set; }
+        public ObservableCollection<EpisodeFile> EpisodeFiles { get; set; }
 
         public Series()
         {

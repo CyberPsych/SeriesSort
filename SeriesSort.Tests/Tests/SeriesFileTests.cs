@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using SeriesSort.Model;
 using SeriesSort.Model.Helpers;
+using SeriesSort.Model.Interface;
 using SeriesSort.Tests.Lib;
 
 namespace SeriesSort.Tests.Tests
@@ -25,7 +26,8 @@ namespace SeriesSort.Tests.Tests
         {
             using (var dbContext = new MediaModelDBContext())
             {
-                var episodeFactory = new EpisodeFactory(dbContext);
+                ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
+                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
                 var newEpisode = episodeFactory.CreateNewEpisode(fileName);
 
                 Assert.That(newEpisode.Season, Is.EqualTo(series));
@@ -91,7 +93,8 @@ namespace SeriesSort.Tests.Tests
             const string testDirectory = @"C:";
             using (var dbContext = new MediaModelDBContext())
             {
-                var episodeFactory = new EpisodeFactory(dbContext);
+                ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
+                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
                 var episodeFile = episodeFactory.CreateNewEpisode(fileName);
 
                 Assert.That(episodeFile.CreateLibraryEpisodePath(testDirectory), Is.EqualTo(path));

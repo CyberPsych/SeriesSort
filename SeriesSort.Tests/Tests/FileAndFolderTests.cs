@@ -5,6 +5,7 @@ using System.Linq;
 using NUnit.Framework;
 using SeriesSort.Model;
 using SeriesSort.Model.Helpers;
+using SeriesSort.Model.Interface;
 using SeriesSort.Tests.Lib;
 
 namespace SeriesSort.Tests.Tests
@@ -80,16 +81,17 @@ namespace SeriesSort.Tests.Tests
 
             using (var dbContext = new MediaModelDBContext())
             {
-                var episodeFactory = new EpisodeFactory(dbContext);
+                ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
+                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
                 var testEpisode = episodeFactory.CreateNewEpisode(startTestDirectory + @"\The UnitTestS01E01.avi");
 
-                var episodeHelper = new EpisodeHelper(testEpisode);
+                var episodeHelper = new EpisodeFileLibraryMover(testEpisode);
                 episodeHelper.MoveToLibrary(libraryTestDirectory);
 
-                const string expextedPathToMovedFile =
+                const string expectedPathToMovedFile =
                     libraryTestDirectory + @"\The UnitTest\Season 01\The UnitTest S01E01.avi";
-                Assert.That(testEpisode.FullPath, Is.EqualTo(expextedPathToMovedFile));
-                Assert.That(File.Exists(expextedPathToMovedFile), Is.True);
+                Assert.That(testEpisode.FullPath, Is.EqualTo(expectedPathToMovedFile));
+                Assert.That(File.Exists(expectedPathToMovedFile), Is.True);
 
                 HelperFileFolderTests.DisposeTestFolder(testDirectory);
 
@@ -99,32 +101,32 @@ namespace SeriesSort.Tests.Tests
         }
 
         [Test]
-        public void ShouldUpdateDbWhenMoveEpisodeToLibrary()
+        public void ShouldOverWriteFileIfExistsWhenMoveEpisodeToLibrary()
         {
-            const string testDirectory = TestContstants.TestDir + @"\ShouldUpdateDbWhenMoveEpisodeToLibrary";
+            const string testDirectory = TestContstants.TestDir + @"\ShouldMoveEpisodeToLibrary";
             const string startTestDirectory = testDirectory + @"\Start\";
-            const string libraryTestDirectory = testDirectory + @"\Library";
             HelperFileFolderTests.CreateTestFolder(startTestDirectory);
             HelperFileFolderTests.AddTestFileToTestFolder(startTestDirectory, new List<string> { "The UnitTestS01E01.avi" }, "ShouldMoveEpisodeToLibrary");
 
+
+            const string libraryTestDirectory = testDirectory + @"\Library";
+            const string expectedDirectory = libraryTestDirectory + @"\The UnitTest\Season 01";
+            HelperFileFolderTests.CreateTestFolder(Path.GetDirectoryName(expectedDirectory));
+            HelperFileFolderTests.AddTestFileToTestFolder(libraryTestDirectory, new List<string> { "The UnitTestS01E01.avi" }, "ShouldMoveEpisodeToLibrary");
+            
+
             using (var dbContext = new MediaModelDBContext())
             {
-                var episodeFactory = new EpisodeFactory(dbContext);
+                ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
+                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
                 var testEpisode = episodeFactory.CreateNewEpisode(startTestDirectory + @"\The UnitTestS01E01.avi");
-                var creationPath = testEpisode.FullPath;
 
-                var episodeHelper = new EpisodeHelper(testEpisode);
+                var episodeHelper = new EpisodeFileLibraryMover(testEpisode);
                 episodeHelper.MoveToLibrary(libraryTestDirectory);
 
-                dbContext.SaveChanges();
-
-                Assert.That(creationPath, Is.Not.EqualTo(testEpisode.FullPath), "The path should have changed with the move");
-
-                var episodePath = dbContext.Episodes.FirstOrDefault(a => a.EpisodeId == testEpisode.EpisodeId);
-                Assert.That(episodePath, Is.Not.Null);
-                string expextedPathToMovedFile = episodePath.FullPath;
-                Assert.That(testEpisode.FullPath, Is.EqualTo(expextedPathToMovedFile));
-                Assert.That(File.Exists(expextedPathToMovedFile), Is.True);
+                const string expectedFullPathToMovedFile = expectedDirectory + @"\The UnitTest S01E01.avi";
+                Assert.That(testEpisode.FullPath, Is.EqualTo(expectedFullPathToMovedFile));
+                Assert.That(File.Exists(expectedFullPathToMovedFile), Is.True);
 
                 HelperFileFolderTests.DisposeTestFolder(testDirectory);
 
@@ -132,5 +134,8 @@ namespace SeriesSort.Tests.Tests
                 dbContext.SaveChanges();
             }
         }
+
+
+
     }
 }

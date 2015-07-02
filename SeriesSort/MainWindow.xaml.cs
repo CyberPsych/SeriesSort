@@ -29,7 +29,7 @@ namespace SeriesSort
                 var episodes = episodesHelper.GetEpisodeFiles(CurrentPath.Text, true);
                 foreach (var episode in episodes)
                 {
-                    _dbContext.Episodes.Add(episode);
+                    _dbContext.EpisodeFiles.Add(episode);
                 }
                 _dbContext.SaveChanges();
             }
@@ -50,7 +50,7 @@ namespace SeriesSort
             var seriesViewSource = ((CollectionViewSource) (FindResource("SeriesViewSource")));
 
             _dbContext.Series.Load();
-            _dbContext.Episodes.Load();
+            _dbContext.EpisodeFiles.Load();
             seriesViewSource.Source = _dbContext.Series.Local;
         }
 
@@ -62,7 +62,7 @@ namespace SeriesSort
                 var episodes = episodesHelper.GetEpisodeFiles(CurrentPath.Text, true);
                 foreach (var episode in episodes)
                 {
-                    var episodeHelper = new EpisodeHelper(episode);
+                    var episodeHelper = new EpisodeFileLibraryMover(episode);
                     episodeHelper.MoveToLibrary(Settings.SeriesLibraryPath);
                 }
                 _dbContext.SaveChanges();

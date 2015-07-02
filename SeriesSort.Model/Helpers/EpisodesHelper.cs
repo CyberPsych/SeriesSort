@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using SeriesSort.Model.Interface;
+using SeriesSort.Model.Model;
 
 namespace SeriesSort.Model.Helpers
 {
@@ -13,10 +15,11 @@ namespace SeriesSort.Model.Helpers
             _dbContext = dbContext;
         }
 
-        public List<Episode> GetEpisodeFiles(string path, bool searchSubdirectories)
+        public List<EpisodeFile> GetEpisodeFiles(string path, bool searchSubdirectories)
         {
             var files = Directory.GetFiles(path, "*.*", searchSubdirectories? SearchOption.AllDirectories: SearchOption.TopDirectoryOnly);
-            var episodeFactory = new EpisodeFactory(_dbContext);
+            ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(_dbContext);
+            var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
 
             return files.Select(file => episodeFactory.CreateNewEpisode((file))).Where(episode => episode.IsValidEpisode()).ToList();
         }

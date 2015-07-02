@@ -8,8 +8,8 @@
     </Window.Resources>
     <StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Button Content="Index Episodes" Click="ClickIndexEpisodesButton"/>
-            <Button Content="Organise Episodes" Click="ClickOrganiseEpisodesButton"/>
+            <Button Content="Index EpisodeFiles" Click="ClickIndexEpisodesButton"/>
+            <Button Content="Organise EpisodeFiles" Click="ClickOrganiseEpisodesButton"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <Label>Path</Label>

@@ -1,4 +1,5 @@
 using System.Data.Entity;
+using SeriesSort.Model.Model;
 
 namespace SeriesSort.Model
 {
@@ -19,7 +20,7 @@ namespace SeriesSort.Model
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
         public DbSet<Series> Series { get; set; }
-        public DbSet<Episode> Episodes { get; set; }
+        public DbSet<EpisodeFile> EpisodeFiles { get; set; }
         public DbSet<MediaType> MediaTypes { get; set; }
     }
 }
