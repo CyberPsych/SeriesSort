@@ -4,6 +4,6 @@ namespace SeriesSort.Model.Interface
 {
     public interface IEpisodeSeriesInformationExtractor
     {
-        void ExtractInfo(EpisodeFile episodeFile);
+        EpisodeFile ExtractInfo(EpisodeFile episodeFile);
     }
 }

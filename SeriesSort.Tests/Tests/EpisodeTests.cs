@@ -18,8 +18,9 @@ namespace SeriesSort.Tests.Tests
             {
                 const string fileName = "UnitTestShouldReturnANewEpisodeS01E01.avi";
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
-                var newEpisode = episodeFactory.CreateNewEpisode(fileName);
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever())); var newEpisode = episodeFactory.CreateNewEpisode(fileName);
                 Assert.That(newEpisode, Is.Not.Null);
                 dbContext.Series.Remove(newEpisode.Series);
                 dbContext.SaveChanges();
@@ -33,8 +34,9 @@ namespace SeriesSort.Tests.Tests
             {
                 const string fileName = "UnitTestShouldReturnANewEpisodeWithASeriesS01E01.avi";
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
-                EpisodeFile newEpisodeFile = episodeFactory.CreateNewEpisode(fileName);
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever())); EpisodeFile newEpisodeFile = episodeFactory.CreateNewEpisode(fileName);
                 Assert.That(newEpisodeFile, Is.Not.Null);
                 Assert.That(newEpisodeFile.Series, Is.Not.Null);
                 dbContext.Series.Remove(newEpisodeFile.Series);
@@ -49,8 +51,9 @@ namespace SeriesSort.Tests.Tests
             using (var dbContext = new MediaModelDBContext())
             {
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
-                var testEpisode = episodeFactory.CreateNewEpisode("T:\\AAA\\UnitTestShouldGetEpisodeIdBackWhenSaveInDbS01E01.avi");
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever())); var testEpisode = episodeFactory.CreateNewEpisode("T:\\AAA\\UnitTestShouldGetEpisodeIdBackWhenSaveInDbS01E01.avi");
                 testEpisode.CreateDateTime = DateTime.Now;
                 testEpisode.FileSize = 100;
 
@@ -74,8 +77,9 @@ namespace SeriesSort.Tests.Tests
 
                 const string fileName = "UnitTestShouldReturnANewEpisodeS01E01.avi";
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
-                EpisodeFile newEpisodeFile = episodeFactory.CreateNewEpisode(fileName);
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever())); EpisodeFile newEpisodeFile = episodeFactory.CreateNewEpisode(fileName);
                 var actual = newEpisodeFile.FileExtention;
                 Assert.That(actual, Is.EqualTo(@"avi"));
             }
@@ -90,8 +94,9 @@ namespace SeriesSort.Tests.Tests
                 const string testDirectory = @"C:";
                 const string fullPath = testDirectory + @"\" + @"\UnitTest.ShouldReturnTheEpisodePath.S01E01.avi";
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
-                var newEpisode = episodeFactory.CreateNewEpisode(fullPath);
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever())); var newEpisode = episodeFactory.CreateNewEpisode(fullPath);
                 var actual = newEpisode.CreateLibraryEpisodePath(testDirectory);
                 Assert.That(actual, Is.EqualTo(testDirectory + @"\UnitTest ShouldReturnTheEpisodePath\Season 01\UnitTest ShouldReturnTheEpisodePath S01E01.avi"));
 
@@ -111,8 +116,9 @@ namespace SeriesSort.Tests.Tests
                 const string testDirectory = @"C:";
                 var fullPath = testDirectory + @"\" + fileName;
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
-                var newEpisode = episodeFactory.CreateNewEpisode(fullPath);
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever())); var newEpisode = episodeFactory.CreateNewEpisode(fullPath);
                 var actual = newEpisode.IsValidEpisode();
                 Assert.That(actual, Is.EqualTo(isValidEpisodeExpected));
 
@@ -137,8 +143,9 @@ namespace SeriesSort.Tests.Tests
                 const string testDirectory = @"C:";
                 var fullPath = testDirectory + @"\" + fileName;
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
-                var newEpisode = episodeFactory.CreateNewEpisode(fullPath);
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever())); var newEpisode = episodeFactory.CreateNewEpisode(fullPath);
                 var actual = newEpisode.IsValidEpisode();
                 Assert.That(actual, Is.EqualTo(isValidEpisodeExpected));
 
@@ -157,8 +164,9 @@ namespace SeriesSort.Tests.Tests
             using (var dbContext = new MediaModelDBContext())
             {
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
-                var testEpisode = episodeFactory.CreateNewEpisode("T:\\AAA\\UnitTestShouldStoreEpisodeInDbS01E01.avi");
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever())); var testEpisode = episodeFactory.CreateNewEpisode("T:\\AAA\\UnitTestShouldStoreEpisodeInDbS01E01.avi");
                 testEpisode.CreateDateTime = DateTime.Now;
                 testEpisode.FileSize = 100;
 

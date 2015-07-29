@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using SeriesSort.Model.Interface;
 using SeriesSort.Model.Model;
 
@@ -15,9 +16,7 @@ namespace SeriesSort.Model.Helpers
 
         public EpisodeFile CreateNewEpisode(string fullPath)
         {
-            _episodeFile = new EpisodeFile(fullPath);
-            _episodeSeriesInformationExtractor.ExtractInfo(_episodeFile);
-            return _episodeFile;
+            return _episodeSeriesInformationExtractor.ExtractInfo(new EpisodeFile(fullPath));
         }
     }
 }

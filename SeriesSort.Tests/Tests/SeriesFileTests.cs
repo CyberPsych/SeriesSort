@@ -27,8 +27,9 @@ namespace SeriesSort.Tests.Tests
             using (var dbContext = new MediaModelDBContext())
             {
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
-                var newEpisode = episodeFactory.CreateNewEpisode(fileName);
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever())); var newEpisode = episodeFactory.CreateNewEpisode(fileName);
 
                 Assert.That(newEpisode.Season, Is.EqualTo(series));
                 Assert.That(newEpisode.EpisodeNumber, Is.EqualTo(episode));
@@ -94,8 +95,9 @@ namespace SeriesSort.Tests.Tests
             using (var dbContext = new MediaModelDBContext())
             {
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
-                var episodeFile = episodeFactory.CreateNewEpisode(fileName);
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever())); var episodeFile = episodeFactory.CreateNewEpisode(fileName);
 
                 Assert.That(episodeFile.CreateLibraryEpisodePath(testDirectory), Is.EqualTo(path));
                 dbContext.Series.Remove(episodeFile.Series);

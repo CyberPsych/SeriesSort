@@ -2,11 +2,12 @@ using System;
 using System.IO;
 using System.Security.AccessControl;
 using System.Security.Principal;
+using SeriesSort.Model.Interface;
 using SeriesSort.Model.Model;
 
 namespace SeriesSort.Model.Helpers
 {
-    public class EpisodeFileLibraryMover
+    public class EpisodeFileLibraryMover : IEpisodeFileLibraryMover
     {
         private readonly EpisodeFile _episodeFile;
 

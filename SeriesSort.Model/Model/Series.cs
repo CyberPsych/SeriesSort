@@ -12,10 +12,6 @@ namespace SeriesSort.Model.Model
         public string SeriesName { get; set; }
         public ObservableCollection<EpisodeFile> EpisodeFiles { get; set; }
 
-        public Series()
-        {
-        }
-
         public string SeriesPath
         {
             get

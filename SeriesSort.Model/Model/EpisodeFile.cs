@@ -94,11 +94,10 @@ namespace SeriesSort.Model.Model
             return episodePathForDuplicate;
         }
 
-        public void SetInfoFromFile(int season, int episodeNumber, double filesize, DateTime creationdate)
+        public void SetInfoFromFile(int season, int episodeNumber, DateTime creationdate)
         {
             Season = season;
             EpisodeNumber = episodeNumber;
-            FileSize = filesize;
             CreateDateTime = creationdate;
         }
 

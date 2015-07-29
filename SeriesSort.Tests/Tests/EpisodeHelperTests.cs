@@ -24,7 +24,9 @@ namespace SeriesSort.Tests.Tests
             using (var dbContext = new MediaModelDBContext())
             {
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever()));
                 var testEpisode = episodeFactory.CreateNewEpisode(startTestDirectory + @"\The UnitTestS01E01.avi");
                 var creationPath = testEpisode.FullPath;
                 dbContext.EpisodeFiles.Add(testEpisode);

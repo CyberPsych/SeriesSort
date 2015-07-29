@@ -38,18 +38,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="NSubstitute">
-      <HintPath>..\packages\NSubstitute.1.7.2.0\lib\NET45\NSubstitute.dll</HintPath>
-    </Reference>
-    <Reference Include="NSubstituteAutoMocker">
-      <HintPath>..\packages\NSubstituteAutoMocker.1.0.0.2\lib\net45\NSubstituteAutoMocker.dll</HintPath>
-    </Reference>
-    <Reference Include="Ploeh.AutoFixture">
-      <HintPath>..\packages\AutoFixture.3.21.0\lib\net40\Ploeh.AutoFixture.dll</HintPath>
-    </Reference>
-    <Reference Include="Ploeh.AutoFixture.AutoNSubstitute">
-      <HintPath>..\packages\AutoFixture.AutoNSubstitute.3.21.0\lib\net40\Ploeh.AutoFixture.AutoNSubstitute.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -64,7 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\EpisodeFileNameCleaner.cs" />
+    <Compile Include="Helpers\EpisodeFileInformationRetriever.cs" />
     <Compile Include="Helpers\EpisodeSeriesInformationExtractor.cs" />
+    <Compile Include="Interface\IEpisodeFileInformationRetriever.cs" />
+    <Compile Include="Interface\IEpisodeFileLibraryMover.cs" />
+    <Compile Include="Interface\IEpisodeFileNameCleaner.cs" />
     <Compile Include="Migrations\201507010759318_EpisodeSeperation.cs" />
     <Compile Include="Migrations\201507010759318_EpisodeSeperation.Designer.cs">
       <DependentUpon>201507010759318_EpisodeSeperation.cs</DependentUpon>

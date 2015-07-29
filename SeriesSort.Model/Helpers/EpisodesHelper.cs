@@ -19,7 +19,7 @@ namespace SeriesSort.Model.Helpers
         {
             var files = Directory.GetFiles(path, "*.*", searchSubdirectories? SearchOption.AllDirectories: SearchOption.TopDirectoryOnly);
             ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(_dbContext);
-            var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
+            var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever()));
 
             return files.Select(file => episodeFactory.CreateNewEpisode((file))).Where(episode => episode.IsValidEpisode()).ToList();
         }

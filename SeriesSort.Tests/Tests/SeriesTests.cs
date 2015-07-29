@@ -59,8 +59,9 @@ namespace SeriesSort.Tests.Tests
             using (var dbContext = new MediaModelDBContext())
             {
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
-                var testEpisode = episodeFactory.CreateNewEpisode("UnitTestShouldExtractSeriesInfoS01E01");
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever())); var testEpisode = episodeFactory.CreateNewEpisode("UnitTestShouldExtractSeriesInfoS01E01");
                 Assert.That(testEpisode.Series, Is.Not.Null);
                 Assert.That(testEpisode.Series.SeriesName, Is.EqualTo("UnitTestShouldExtractSeriesInfo"));
 
@@ -77,8 +78,9 @@ namespace SeriesSort.Tests.Tests
             {
                 const string testDirectory = TestContstants.TestDir + @"\ShouldStoreSeriesInDb";
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
-                var testEpisode = episodeFactory.CreateNewEpisode(testDirectory + @"\UnitTestShouldStoreSeriesInDbS01E01.avi");
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever())); var testEpisode = episodeFactory.CreateNewEpisode(testDirectory + @"\UnitTestShouldStoreSeriesInDbS01E01.avi");
                 testEpisode.CreateDateTime = DateTime.Now;
                 testEpisode.FileSize = 100;
 
@@ -121,8 +123,9 @@ namespace SeriesSort.Tests.Tests
             {
                 const string testDirectory = TestContstants.TestDir + @"\ShouldLoadSeriesIfOneExists";
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
-                var randomSeriesName = Guid.NewGuid().ToString();
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever())); var randomSeriesName = Guid.NewGuid().ToString();
                 var testEpisodeA = episodeFactory.CreateNewEpisode(testDirectory + @"\" + randomSeriesName + @"S01E01.avi");
                 var testEpisodeB = episodeFactory.CreateNewEpisode(testDirectory + @"\" + randomSeriesName + @"S02E03.avi");
 
@@ -148,8 +151,9 @@ namespace SeriesSort.Tests.Tests
             {
                 const string testDirectory = TestContstants.TestDir + @"\ShouldLoadEpisodesForSeriesWhenSeriesIsLoaded";
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
-                var randomSeriesName = Guid.NewGuid().ToString();
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever())); var randomSeriesName = Guid.NewGuid().ToString();
                 var testEpisodeA = episodeFactory.CreateNewEpisode(testDirectory + @"\" + randomSeriesName + @"S03E01.avi");
                 var testEpisodeB = episodeFactory.CreateNewEpisode(testDirectory + @"\" + randomSeriesName + @"S03E02.avi");
 

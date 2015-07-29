@@ -18,13 +18,17 @@ namespace SeriesSort.Model.Helpers
         private int _episodeNumber;
         private int _season;
         private string _showName;
+        private readonly IEpisodeFileNameCleaner _episodeFileNameCleaner;
+        private readonly EpisodeFileInformationRetriever _episodeFileInformationRetriever;
 
-        public EpisodeSeriesInformationExtractor(ISeriesQueryByShowName seriesQuery)
+        public EpisodeSeriesInformationExtractor(ISeriesQueryByShowName seriesQuery, IEpisodeFileNameCleaner episodeFileNameCleaner, EpisodeFileInformationRetriever episodeFileInformationRetriever)
         {
             _seriesQuery = seriesQuery;
+            _episodeFileNameCleaner = episodeFileNameCleaner;
+            _episodeFileInformationRetriever = episodeFileInformationRetriever;
         }
 
-        public void ExtractInfo(EpisodeFile episodeFile)
+        public EpisodeFile ExtractInfo(EpisodeFile episodeFile)
         {
             _episodeFile = episodeFile;
 
@@ -47,7 +51,7 @@ namespace SeriesSort.Model.Helpers
                     switch (groupName)
                     {
                         case "ShowName":
-                            _showName = cleanUpName(@group.Value);
+                            _showName = _episodeFileNameCleaner.CleanUpName(@group.Value);
                             break;
                         case "Season":
                             _season = Convert.ToInt32(@group.Value);
@@ -64,27 +68,11 @@ namespace SeriesSort.Model.Helpers
                 }
             }
 
-            GetFileInfoForEpisode(_episodeFile);
+            _episodeFile = _episodeFileInformationRetriever.GetFileInfoForEpisode(_episodeFile);
 
-            _episodeFile.SetInfoFromFile(_season, _episodeNumber, _fileSize, _creationDate);
-        }
+            _episodeFile.SetInfoFromFile(_season, _episodeNumber, _creationDate);
 
-        private void GetFileInfoForEpisode(EpisodeFile episodeFile)
-        {
-            if (File.Exists(episodeFile.FullPath))
-            {
-                _creationDate = File.GetCreationTime(episodeFile.FullPath);
-                var fileInfo = new FileInfo(episodeFile.FullPath);
-                _fileSize = fileInfo.Length;
-            }
-        }
-
-        private string cleanUpName(string name)
-        {
-            var trimChars = new[] { '_', '.', ' ' };
-            var workingName = name.Trim(trimChars);
-
-            return trimChars.Aggregate(workingName, (current, trimChar) => current.Replace(trimChar, ' '));
+            return _episodeFile;
         }
     }
 }

@@ -82,8 +82,9 @@ namespace SeriesSort.Tests.Tests
             using (var dbContext = new MediaModelDBContext())
             {
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
-                var testEpisode = episodeFactory.CreateNewEpisode(startTestDirectory + @"\The UnitTestS01E01.avi");
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever())); var testEpisode = episodeFactory.CreateNewEpisode(startTestDirectory + @"\The UnitTestS01E01.avi");
 
                 var episodeHelper = new EpisodeFileLibraryMover(testEpisode);
                 episodeHelper.MoveToLibrary(libraryTestDirectory);
@@ -118,8 +119,9 @@ namespace SeriesSort.Tests.Tests
             using (var dbContext = new MediaModelDBContext())
             {
                 ISeriesQueryByShowName seriesQueryByNameFromDbContext = new SeriesQueryByNameFromDbContext(dbContext);
-                var episodeFactory = new EpisodeFileFactory(new EpisodeSeriesInformationExtractor(seriesQueryByNameFromDbContext));
-                var testEpisode = episodeFactory.CreateNewEpisode(startTestDirectory + @"\The UnitTestS01E01.avi");
+                var episodeFactory = new EpisodeFileFactory(
+                    new EpisodeSeriesInformationExtractor(
+                        seriesQueryByNameFromDbContext, new EpisodeFileNameCleaner(), new EpisodeFileInformationRetriever())); var testEpisode = episodeFactory.CreateNewEpisode(startTestDirectory + @"\The UnitTestS01E01.avi");
 
                 var episodeHelper = new EpisodeFileLibraryMover(testEpisode);
                 episodeHelper.MoveToLibrary(libraryTestDirectory);

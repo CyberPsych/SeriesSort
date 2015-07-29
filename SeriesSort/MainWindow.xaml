@@ -13,7 +13,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <Label>Path</Label>
-            <TextBox Name="CurrentPath" HorizontalAlignment="Center" />
+            <TextBox Name="CurrentPath" HorizontalAlignment="Center" Height="25" />
             <Button Content="..." Name="PathButton" Click="ClickPathButton" Width="26" />
         </StackPanel>
         <ListBox ItemsSource="{Binding Source={StaticResource SeriesViewSource}}">
