@@ -1,5 +1,5 @@
-using System.Data.Entity;
 using SeriesSort.Model.Model;
+using System.Data.Entity;
 
 namespace SeriesSort.Model
 {

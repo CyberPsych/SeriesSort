@@ -1,7 +1,7 @@
+using SeriesSort.Model.Helpers;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using SeriesSort.Model.Helpers;
 
 namespace SeriesSort.Model.Model
 {

@@ -1,6 +1,6 @@
+using SeriesSort.Model.Helpers;
 using System;
 using System.IO;
-using SeriesSort.Model.Helpers;
 
 namespace SeriesSort.Model.Model
 {
@@ -23,13 +23,13 @@ namespace SeriesSort.Model.Model
 
         private string GetFileExtension(string fullPath)
         {
-            var lastDecimalPoint = fullPath.LastIndexOf('.') + 1;   
+            var lastDecimalPoint = fullPath.LastIndexOf('.') + 1;
             return fullPath.Substring(lastDecimalPoint, fullPath.Length - lastDecimalPoint);
         }
 
         public virtual DateTime CreateDateTime { get; set; }
         public virtual double FileSize { get; set; }
-        public virtual string FileExtention { get; set; } 
+        public virtual string FileExtention { get; set; }
 
         private string _fullPath;
 

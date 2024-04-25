@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using SeriesSort.Model;
 using SeriesSort.Model.Helpers;
 using SeriesSort.Model.Interface;
 using SeriesSort.Tests.Lib;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace SeriesSort.Tests.Tests
 {
@@ -114,7 +113,7 @@ namespace SeriesSort.Tests.Tests
             const string expectedDirectory = libraryTestDirectory + @"\The UnitTest\Season 01";
             HelperFileFolderTests.CreateTestFolder(Path.GetDirectoryName(expectedDirectory));
             HelperFileFolderTests.AddTestFileToTestFolder(libraryTestDirectory, new List<string> { "The UnitTestS01E01.avi" }, "ShouldMoveEpisodeToLibrary");
-            
+
 
             using (var dbContext = new MediaModelDBContext())
             {

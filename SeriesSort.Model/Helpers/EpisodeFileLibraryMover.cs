@@ -1,9 +1,9 @@
+using SeriesSort.Model.Interface;
+using SeriesSort.Model.Model;
 using System;
 using System.IO;
 using System.Security.AccessControl;
 using System.Security.Principal;
-using SeriesSort.Model.Interface;
-using SeriesSort.Model.Model;
 
 namespace SeriesSort.Model.Helpers
 {
@@ -57,8 +57,8 @@ namespace SeriesSort.Model.Helpers
 
             dSecurity.AddAccessRule(
                 new FileSystemAccessRule(
-                    new SecurityIdentifier(WellKnownSidType.BuiltinUsersSid, null), 
-                    FileSystemRights.DeleteSubdirectoriesAndFiles, 
+                    new SecurityIdentifier(WellKnownSidType.BuiltinUsersSid, null),
+                    FileSystemRights.DeleteSubdirectoriesAndFiles,
                     AccessControlType.Allow)
                     );
             dInfo.SetAccessControl(dSecurity);
@@ -69,7 +69,7 @@ namespace SeriesSort.Model.Helpers
             }
             catch (UnauthorizedAccessException unauthorizedAccessException)
             {
-                //TODO: Handle Exceptions
+                throw new UnauthorizedAccessException("Could not delete file.", unauthorizedAccessException);
             }
         }
     }

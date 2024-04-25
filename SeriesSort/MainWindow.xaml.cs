@@ -23,7 +23,7 @@ namespace SeriesSort
 
         private void ClickIndexEpisodesButton(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(CurrentPath.Text) )
+            if (!string.IsNullOrEmpty(CurrentPath.Text))
             {
                 var episodesHelper = new EpisodesHelper(_dbContext);
                 var episodes = episodesHelper.GetEpisodeFiles(CurrentPath.Text, true);
@@ -39,7 +39,7 @@ namespace SeriesSort
         {
             var folderBrowser = new WPFFolderBrowserDialog();
             var showDialog = folderBrowser.ShowDialog();
-            if (showDialog != null && (bool) showDialog)
+            if (showDialog != null && (bool)showDialog)
             {
                 CurrentPath.Text = folderBrowser.FileName;
             }
@@ -47,7 +47,7 @@ namespace SeriesSort
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var seriesViewSource = ((CollectionViewSource) (FindResource("SeriesViewSource")));
+            var seriesViewSource = ((CollectionViewSource)(FindResource("SeriesViewSource")));
 
             _dbContext.Series.Load();
             _dbContext.EpisodeFiles.Load();

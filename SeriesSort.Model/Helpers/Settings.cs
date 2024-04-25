@@ -7,7 +7,7 @@ namespace SeriesSort.Model.Helpers
         static Settings()
         {
             ExcludeSampleFiles = true;
-            SeriesLibraryPath =  ConfigurationManager.AppSettings["SeriesPath"];
+            SeriesLibraryPath = ConfigurationManager.AppSettings["SeriesPath"];
             OverwriteFiles = true;
         }
         public static bool ExcludeSampleFiles { get; set; }

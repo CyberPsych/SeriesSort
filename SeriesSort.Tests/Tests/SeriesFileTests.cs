@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using SeriesSort.Model;
 using SeriesSort.Model.Helpers;
 using SeriesSort.Model.Interface;
 using SeriesSort.Tests.Lib;
+using System.Collections.Generic;
 
 namespace SeriesSort.Tests.Tests
 {
@@ -68,7 +68,7 @@ namespace SeriesSort.Tests.Tests
             HelperFileFolderTests.CreateTestFolder(testDirectory);
 
             const string testFileName = "TestShouldReadTheFullPathOfTheFile.S01E01.avi";
-            HelperFileFolderTests.AddTestFileToTestFolder(testDirectory, new List<string> {testFileName},
+            HelperFileFolderTests.AddTestFileToTestFolder(testDirectory, new List<string> { testFileName },
                 "ShouldReadTheFullPathOfTheFile");
 
             using (var dbContext = new MediaModelDBContext())
@@ -79,7 +79,7 @@ namespace SeriesSort.Tests.Tests
                 var expected = string.Concat(testDirectory, "\\", testFileName);
                 Assert.That(episodeFile.FullPath, Is.EqualTo(expected));
 
-                dbContext.Series.Remove(episodeFile.Series); 
+                dbContext.Series.Remove(episodeFile.Series);
                 dbContext.SaveChanges();
                 HelperFileFolderTests.DisposeTestFolder(testDirectory);
             }

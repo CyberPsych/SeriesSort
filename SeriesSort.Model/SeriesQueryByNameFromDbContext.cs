@@ -1,7 +1,6 @@
-using System.Linq;
-using SeriesSort.Model.Helpers;
 using SeriesSort.Model.Interface;
 using SeriesSort.Model.Model;
+using System.Linq;
 
 namespace SeriesSort.Model
 {

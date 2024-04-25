@@ -1,6 +1,6 @@
+using SeriesSort.Model.Interface;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using SeriesSort.Model.Interface;
 
 namespace SeriesSort.Model.Model
 {

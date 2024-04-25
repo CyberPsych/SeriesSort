@@ -1,5 +1,5 @@
-using System.Linq;
 using SeriesSort.Model.Interface;
+using System.Linq;
 
 namespace SeriesSort.Model.Helpers
 {

@@ -1,11 +1,11 @@
 ﻿using NUnit.Framework;
 using SeriesSort.Model;
 using SeriesSort.Model.Helpers;
+using SeriesSort.Model.Interface;
 using SeriesSort.Tests.Lib;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using SeriesSort.Model.Interface;
 
 namespace SeriesSort.Tests.Tests
 {

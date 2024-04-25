@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using SeriesSort.Model;
 using SeriesSort.Model.Helpers;
 using SeriesSort.Model.Interface;
 using SeriesSort.Model.Model;
+using System;
+using System.Linq;
 
 namespace SeriesSort.Tests.Tests
 {
@@ -132,7 +132,7 @@ namespace SeriesSort.Tests.Tests
 
         [TestCase("Test.S01E01.avi", true, true, Description = "No Sample, excludeSampleSetting true")]
         [TestCase("Test.S01E01.avi", false, true, Description = "No Sample, excludeSampleSetting false")]
-        [TestCase("TestSampleTest.S01E01.avi", true, true, Description = "No Sample, excludeSampleSetting true has Sample in Name", Ignore = true)]
+        [TestCase("TestSampleTest.S01E01.avi", true, true, Description = "No Sample, excludeSampleSetting true has Sample in Name")]
         [TestCase("Test.Sample.S01E01.avi", true, false, Description = "Sample, excludeSampleSetting true")]
         [TestCase("Test.Sample.S01E01.avi", false, true, Description = "Sample, excludeSampleSetting false")]
         public void ShouldNotBeAValidEpisodeIfSample_IfNoSampleSettingSet(string fileName, bool excludeSampleSetting, bool isValidEpisodeExpected)
@@ -154,7 +154,7 @@ namespace SeriesSort.Tests.Tests
                     dbContext.Series.Remove(newEpisode.Series);
                     dbContext.SaveChanges();
                 }
-            }  
+            }
         }
 
         [Test]
@@ -189,27 +189,27 @@ namespace SeriesSort.Tests.Tests
             }
         }
 
-        [Test, Ignore]
+        [Test]
         public void ShouldGetEpisodePathForDuplicate()
         {
             throw new NotImplementedException();
 
-            var e = new EpisodeFile();
-            e.GetEpisodePathForDuplicate("todo", 1);
+            //var e = new EpisodeFile();
+            //e.GetEpisodePathForDuplicate("todo", 1);
 
-            Assert.That("Not Implemented", Is.True);
+            //Assert.That("Not Implemented", Is.True);
         }
 
 
-        [Test, Ignore]
+        [Test]
         public void ShouldGetNextEpisodePathForDuplicate()
         {
             throw new NotImplementedException();
 
-            var e = new EpisodeFile();
-            e.GetNextEpisodePathForDuplicate("todo");
+            //var e = new EpisodeFile();
+            //e.GetNextEpisodePathForDuplicate("todo");
 
-            Assert.That("Not Implemented", Is.True);
+            //Assert.That("Not Implemented", Is.True);
         }
     }
 }

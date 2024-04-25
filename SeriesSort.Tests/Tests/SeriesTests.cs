@@ -1,10 +1,10 @@
 ﻿using NUnit.Framework;
 using SeriesSort.Model;
 using SeriesSort.Model.Helpers;
+using SeriesSort.Model.Interface;
 using SeriesSort.Tests.Lib;
 using System;
 using System.Linq;
-using SeriesSort.Model.Interface;
 
 namespace SeriesSort.Tests.Tests
 {
@@ -174,10 +174,10 @@ namespace SeriesSort.Tests.Tests
             }
         }
 
-        [Test, Ignore]
-        public void ShouldBeAbleToHaveSeriesWithEpisodesInDiferentLibrary()
-        {
-            throw new NotImplementedException();
-        }
+        //[Test, Ignore]
+        //public void ShouldBeAbleToHaveSeriesWithEpisodesInDiferentLibrary()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

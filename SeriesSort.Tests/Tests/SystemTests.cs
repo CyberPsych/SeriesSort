@@ -1,14 +1,14 @@
 ﻿using NUnit.Framework;
-using System;
 using SeriesSort.Model;
 using SeriesSort.Model.Helpers;
+using System;
 
 namespace SeriesSort.Tests.Tests
 {
     [TestFixture]
     public class SystemTests
     {
-        [Test, Ignore]
+        [Test]
         public void ShouldHandleExceptions()
         {
             throw new NotImplementedException();

@@ -1,6 +1,6 @@
-using System.IO;
 using SeriesSort.Model.Interface;
 using SeriesSort.Model.Model;
+using System.IO;
 
 namespace SeriesSort.Model.Helpers
 {

@@ -1,9 +1,7 @@
-using System;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
 using SeriesSort.Model.Interface;
 using SeriesSort.Model.Model;
+using System;
+using System.Text.RegularExpressions;
 
 namespace SeriesSort.Model.Helpers
 {
@@ -14,7 +12,6 @@ namespace SeriesSort.Model.Helpers
         private readonly ISeriesQueryByShowName _seriesQuery;
         private EpisodeFile _episodeFile;
         private DateTime _creationDate;
-        private double _fileSize;
         private int _episodeNumber;
         private int _season;
         private string _showName;
