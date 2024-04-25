@@ -3,56 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B11238D8-C811-45C1-AE36-E7C8AFC072AB}|SeriesSort.Model\\SeriesSort.Model.csproj|c:\\users\\colin\\source\\repos\\cyberpsych\\seriessort\\seriessort.model\\model\\episodefile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11238D8-C811-45C1-AE36-E7C8AFC072AB}|SeriesSort.Model\\SeriesSort.Model.csproj|solutionrelative:seriessort.model\\model\\episodefile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11238D8-C811-45C1-AE36-E7C8AFC072AB}|SeriesSort.Model\\SeriesSort.Model.csproj|c:\\users\\colin\\source\\repos\\cyberpsych\\seriessort\\seriessort.model\\model\\episode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11238D8-C811-45C1-AE36-E7C8AFC072AB}|SeriesSort.Model\\SeriesSort.Model.csproj|solutionrelative:seriessort.model\\model\\episode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11238D8-C811-45C1-AE36-E7C8AFC072AB}|SeriesSort.Model\\SeriesSort.Model.csproj|c:\\users\\colin\\source\\repos\\cyberpsych\\seriessort\\seriessort.model\\mediamodeldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11238D8-C811-45C1-AE36-E7C8AFC072AB}|SeriesSort.Model\\SeriesSort.Model.csproj|solutionrelative:seriessort.model\\mediamodeldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11238D8-C811-45C1-AE36-E7C8AFC072AB}|SeriesSort.Model\\SeriesSort.Model.csproj|c:\\users\\colin\\source\\repos\\cyberpsych\\seriessort\\seriessort.model\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{B11238D8-C811-45C1-AE36-E7C8AFC072AB}|SeriesSort.Model\\SeriesSort.Model.csproj|solutionrelative:seriessort.model\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11238D8-C811-45C1-AE36-E7C8AFC072AB}|SeriesSort.Model\\SeriesSort.Model.csproj|c:\\users\\colin\\source\\repos\\cyberpsych\\seriessort\\seriessort.model\\seriesquerybynamefromdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11238D8-C811-45C1-AE36-E7C8AFC072AB}|SeriesSort.Model\\SeriesSort.Model.csproj|solutionrelative:seriessort.model\\seriesquerybynamefromdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11238D8-C811-45C1-AE36-E7C8AFC072AB}|SeriesSort.Model\\SeriesSort.Model.csproj|c:\\users\\colin\\source\\repos\\cyberpsych\\seriessort\\seriessort.model\\helpers\\episodefilelibrarymover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11238D8-C811-45C1-AE36-E7C8AFC072AB}|SeriesSort.Model\\SeriesSort.Model.csproj|solutionrelative:seriessort.model\\helpers\\episodefilelibrarymover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2B764715-81C9-4007-A62C-6E4DEBAEBAF5}|SeriesSort.Tests\\SeriesSort.Tests.csproj|c:\\users\\colin\\source\\repos\\cyberpsych\\seriessort\\seriessort.tests\\tests\\episodetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2B764715-81C9-4007-A62C-6E4DEBAEBAF5}|SeriesSort.Tests\\SeriesSort.Tests.csproj|solutionrelative:seriessort.tests\\tests\\episodetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11238D8-C811-45C1-AE36-E7C8AFC072AB}|SeriesSort.Model\\SeriesSort.Model.csproj|c:\\users\\colin\\source\\repos\\cyberpsych\\seriessort\\seriessort.model\\helpers\\episodeseriesinformationextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11238D8-C811-45C1-AE36-E7C8AFC072AB}|SeriesSort.Model\\SeriesSort.Model.csproj|solutionrelative:seriessort.model\\helpers\\episodeseriesinformationextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B11238D8-C811-45C1-AE36-E7C8AFC072AB}|SeriesSort.Model\\SeriesSort.Model.csproj|c:\\users\\colin\\source\\repos\\cyberpsych\\seriessort\\seriessort.model\\helpers\\episodefilefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B11238D8-C811-45C1-AE36-E7C8AFC072AB}|SeriesSort.Model\\SeriesSort.Model.csproj|solutionrelative:seriessort.model\\helpers\\episodefilefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2B764715-81C9-4007-A62C-6E4DEBAEBAF5}|SeriesSort.Tests\\SeriesSort.Tests.csproj|c:\\users\\colin\\source\\repos\\cyberpsych\\seriessort\\seriessort.tests\\tests\\systemtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2B764715-81C9-4007-A62C-6E4DEBAEBAF5}|SeriesSort.Tests\\SeriesSort.Tests.csproj|solutionrelative:seriessort.tests\\tests\\systemtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2B764715-81C9-4007-A62C-6E4DEBAEBAF5}|SeriesSort.Tests\\SeriesSort.Tests.csproj|c:\\users\\colin\\source\\repos\\cyberpsych\\seriessort\\seriessort.tests\\tests\\seriestests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2B764715-81C9-4007-A62C-6E4DEBAEBAF5}|SeriesSort.Tests\\SeriesSort.Tests.csproj|solutionrelative:seriessort.tests\\tests\\seriestests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{080A312C-BFC1-4F56-9D14-3549B5A5259F}|SeriesSort\\SeriesSort.csproj|c:\\users\\colin\\source\\repos\\cyberpsych\\seriessort\\seriessort\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{080A312C-BFC1-4F56-9D14-3549B5A5259F}|SeriesSort\\SeriesSort.csproj|solutionrelative:seriessort\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2B764715-81C9-4007-A62C-6E4DEBAEBAF5}|SeriesSort.Tests\\SeriesSort.Tests.csproj|c:\\users\\colin\\source\\repos\\cyberpsych\\seriessort\\seriessort.tests\\tests\\episodehelpertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2B764715-81C9-4007-A62C-6E4DEBAEBAF5}|SeriesSort.Tests\\SeriesSort.Tests.csproj|solutionrelative:seriessort.tests\\tests\\episodehelpertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2B764715-81C9-4007-A62C-6E4DEBAEBAF5}|SeriesSort.Tests\\SeriesSort.Tests.csproj|c:\\users\\colin\\source\\repos\\cyberpsych\\seriessort\\seriessort.tests\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{2B764715-81C9-4007-A62C-6E4DEBAEBAF5}|SeriesSort.Tests\\SeriesSort.Tests.csproj|solutionrelative:seriessort.tests\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -71,170 +23,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EpisodeFile.cs",
-              "DocumentMoniker": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Model\\Model\\EpisodeFile.cs",
-              "RelativeDocumentMoniker": "SeriesSort.Model\\Model\\EpisodeFile.cs",
-              "ToolTip": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Model\\Model\\EpisodeFile.cs",
-              "RelativeToolTip": "SeriesSort.Model\\Model\\EpisodeFile.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T07:02:14.433Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Episode.cs",
-              "DocumentMoniker": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Model\\Model\\Episode.cs",
-              "RelativeDocumentMoniker": "SeriesSort.Model\\Model\\Episode.cs",
-              "ToolTip": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Model\\Model\\Episode.cs",
-              "RelativeToolTip": "SeriesSort.Model\\Model\\Episode.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T07:02:09.277Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MediaModelDBContext.cs",
-              "DocumentMoniker": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Model\\MediaModelDBContext.cs",
-              "RelativeDocumentMoniker": "SeriesSort.Model\\MediaModelDBContext.cs",
-              "ToolTip": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Model\\MediaModelDBContext.cs",
-              "RelativeToolTip": "SeriesSort.Model\\MediaModelDBContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T07:01:52.341Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "packages.config",
-              "DocumentMoniker": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Model\\packages.config",
-              "RelativeDocumentMoniker": "SeriesSort.Model\\packages.config",
-              "ToolTip": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Model\\packages.config",
-              "RelativeToolTip": "SeriesSort.Model\\packages.config",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Tests\\App.config",
+              "RelativeDocumentMoniker": "SeriesSort.Tests\\App.config",
+              "ToolTip": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Tests\\App.config",
+              "RelativeToolTip": "SeriesSort.Tests\\App.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAACAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-04-25T07:01:49.682Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SeriesQueryByNameFromDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Model\\SeriesQueryByNameFromDbContext.cs",
-              "RelativeDocumentMoniker": "SeriesSort.Model\\SeriesQueryByNameFromDbContext.cs",
-              "ToolTip": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Model\\SeriesQueryByNameFromDbContext.cs",
-              "RelativeToolTip": "SeriesSort.Model\\SeriesQueryByNameFromDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T07:01:41.399Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EpisodeFileLibraryMover.cs",
-              "DocumentMoniker": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Model\\Helpers\\EpisodeFileLibraryMover.cs",
-              "RelativeDocumentMoniker": "SeriesSort.Model\\Helpers\\EpisodeFileLibraryMover.cs",
-              "ToolTip": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Model\\Helpers\\EpisodeFileLibraryMover.cs",
-              "RelativeToolTip": "SeriesSort.Model\\Helpers\\EpisodeFileLibraryMover.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAAnwEcAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T07:00:41.765Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EpisodeSeriesInformationExtractor.cs",
-              "DocumentMoniker": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Model\\Helpers\\EpisodeSeriesInformationExtractor.cs",
-              "RelativeDocumentMoniker": "SeriesSort.Model\\Helpers\\EpisodeSeriesInformationExtractor.cs",
-              "ToolTip": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Model\\Helpers\\EpisodeSeriesInformationExtractor.cs",
-              "RelativeToolTip": "SeriesSort.Model\\Helpers\\EpisodeSeriesInformationExtractor.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEEAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T06:59:43.32Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "EpisodeFileFactory.cs",
-              "DocumentMoniker": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Model\\Helpers\\EpisodeFileFactory.cs",
-              "RelativeDocumentMoniker": "SeriesSort.Model\\Helpers\\EpisodeFileFactory.cs",
-              "ToolTip": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Model\\Helpers\\EpisodeFileFactory.cs",
-              "RelativeToolTip": "SeriesSort.Model\\Helpers\\EpisodeFileFactory.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T06:59:06.287Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "SystemTests.cs",
-              "DocumentMoniker": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Tests\\Tests\\SystemTests.cs",
-              "RelativeDocumentMoniker": "SeriesSort.Tests\\Tests\\SystemTests.cs",
-              "ToolTip": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Tests\\Tests\\SystemTests.cs",
-              "RelativeToolTip": "SeriesSort.Tests\\Tests\\SystemTests.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T06:56:40.689Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "SeriesTests.cs",
-              "DocumentMoniker": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Tests\\Tests\\SeriesTests.cs",
-              "RelativeDocumentMoniker": "SeriesSort.Tests\\Tests\\SeriesTests.cs",
-              "ToolTip": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Tests\\Tests\\SeriesTests.cs",
-              "RelativeToolTip": "SeriesSort.Tests\\Tests\\SeriesTests.cs",
-              "ViewState": "AQIAAJgAAAAAAAAAAAAgwLQAAAALAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T06:55:53.188Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EpisodeTests.cs",
-              "DocumentMoniker": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Tests\\Tests\\EpisodeTests.cs",
-              "RelativeDocumentMoniker": "SeriesSort.Tests\\Tests\\EpisodeTests.cs",
-              "ToolTip": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Tests\\Tests\\EpisodeTests.cs",
-              "RelativeToolTip": "SeriesSort.Tests\\Tests\\EpisodeTests.cs",
-              "ViewState": "AQIAAKsAAAAAAAAAAAAnwMwAAAA6AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T06:54:10.671Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "SeriesSort\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort\\MainWindow.xaml.cs",
-              "RelativeToolTip": "SeriesSort\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T06:52:22.085Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "EpisodeHelperTests.cs",
-              "DocumentMoniker": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Tests\\Tests\\EpisodeHelperTests.cs",
-              "RelativeDocumentMoniker": "SeriesSort.Tests\\Tests\\EpisodeHelperTests.cs",
-              "ToolTip": "C:\\Users\\colin\\source\\repos\\CyberPsych\\SeriesSort\\SeriesSort.Tests\\Tests\\EpisodeHelperTests.cs",
-              "RelativeToolTip": "SeriesSort.Tests\\Tests\\EpisodeHelperTests.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T06:48:10.972Z",
+              "WhenOpened": "2024-04-25T08:33:37.813Z",
               "EditorCaption": ""
             },
             {

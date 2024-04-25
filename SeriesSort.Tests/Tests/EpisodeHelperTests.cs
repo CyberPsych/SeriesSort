@@ -9,9 +9,14 @@ using System.Linq;
 
 namespace SeriesSort.Tests.Tests
 {
-    [TestFixture]
+    //[TestFixture]
     public class EpisodeHelperTests
     {
+        [SetUp]
+        public void Setup()
+        {
+        }
+
         [Test]
         public void ShouldUpdateDbWhenMoveEpisodeToLibrary()
         {
